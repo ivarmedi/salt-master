@@ -1,0 +1,3 @@
+[submodule "submodules/pillarcrypt"]
+	path = submodules/pillarcrypt
+	url = git@github.com:ivarmedi/pillarcrypt.git
