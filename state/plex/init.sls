@@ -8,8 +8,8 @@
     - network_mode: host
     - environment:
       - TZ: "Europe/Stockholm"
-      - PLEX_UID: 1001
-      - PLEX_GID: 1001
+      - PLEX_UID: "1001"
+      - PLEX_GID: "1001"
     - binds:
       - /mnt/backup/plex/config:/config
       - /tmp/transcode:/transcode
