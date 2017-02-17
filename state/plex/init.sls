@@ -13,5 +13,5 @@
     - binds:
       - /mnt/backup/plex/config:/config
       - /tmp/transcode:/transcode
-      - /mnt/media:/data
+      - /mnt/media:/mnt/media
 
