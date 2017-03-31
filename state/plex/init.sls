@@ -11,7 +11,7 @@
       - PLEX_UID: "1001"
       - PLEX_GID: "1001"
     - binds:
-      - /mnt/backup/plex/config:/config
+      - /opt/plex/config:/config
       - /tmp/transcode:/transcode
       - /mnt/media:/mnt/media
 
