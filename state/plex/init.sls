@@ -4,7 +4,7 @@
 {{ ns }}/container:
   dockerng.running:
     - name: plex
-    - image: plexinc/pms-docker
+    - image: plexinc/pms-docker:plexpass
     - network_mode: host
     - environment:
       - TZ: "Europe/Stockholm"
@@ -14,4 +14,3 @@
       - /opt/plex/config:/config
       - /tmp/transcode:/transcode
       - /mnt/media:/mnt/media
-
