@@ -9,12 +9,14 @@
 {{ ns }}/container:
   dockerng.running:
     - name: squid
-    - image: sameersbn/squid
+    - image: ivarmedi/squid
     - environment:
       - TZ: "Europe/Stockholm"
     - port_bindings:
       - 3128:3128
+      - 3130:3130
     - binds:
-      - /opt/squid/cache:/var/spool/squid3
-      - /opt/squid/logs:/var/log/squid3
-      - /opt/squid/squid.conf:/etc/squid3/squid.conf
+      - /opt/squid/cache:/var/spool/squid
+      - /opt/squid/logs:/var/log/squid
+      - /opt/squid/ssl:/etc/ssl/squid
+      - /opt/squid/squid.conf:/etc/squid/squid.conf
