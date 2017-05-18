@@ -17,6 +17,6 @@
       - 3130:3130
     - binds:
       - /opt/squid/cache:/var/spool/squid
-      - /opt/squid/logs:/var/log/squid
       - /opt/squid/ssl:/etc/ssl/squid
       - /opt/squid/squid.conf:/etc/squid/squid.conf
+      - /var/log/containers/squid:/var/log/squid
