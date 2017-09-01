@@ -1,0 +1,28 @@
+{%- set instances = range(0, service.instances|default(0)) %}
+
+{%- for instance in instances %}
+{{ ns }}/template/service/run:
+  dockerng.running:
+    - name: {{ name }}-{{ instance }}
+    - image: {{ service.image }}:{{ service.tag|default('latest') }}
+
+  {%- if service.network_mode.lower() != 'host' %}
+    - hostname: {{ name }}-{{ instance }}
+  {%- endif %}
+
+  {%- if service.environment|default(False) %}
+    - environment: {{ service.environment }}
+  {%- endif %}
+
+  {%- if service.network_mode|default(False) %}
+    - network_mode: {{ service.network_mode }}
+  {%- endif %}
+
+  {%- if service.volumes|default(False) %}
+    - binds: {{ service.volumes }}
+  {%- endif %}
+
+  {%- if service.ports|default(False) %}
+    - ports: {{ service.ports }}
+  {%- endif %}
+{%- endfor %}

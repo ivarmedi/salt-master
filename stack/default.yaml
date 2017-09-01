@@ -1,0 +1,14 @@
+services:
+  plex:
+    instances: 1
+    image: plexinc/pms-docker
+    tag: plexpass
+    network_mode: host
+    environment:
+      TZ: "Europe/Stockholm"
+      PLEX_UID: "1001"
+      PLEX_GID: "1001"
+    volumes:
+      - /opt/plex/config:/config
+      - /tmp/transcode:/transcode
+      - /mnt/media:/mnt/media
