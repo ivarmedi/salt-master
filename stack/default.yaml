@@ -21,6 +21,13 @@ services:
     instances: 1
     image: homeassistant/home-assistant
     network_mode: host
+    files:
+      -
+        source: salt://homeassistant/files/configuration.yaml
+        path: /etc/homeassistant/configuration.yaml
+        mode: 0644
+        user: root
+        group: root
     volumes:
       - /etc/localtime:/etc/localtime
       - /etc/homeassistant:/config
@@ -31,3 +38,10 @@ services:
       - 1883:1883
     volumes:
       - /etc/mosquitto:/mqtt/config:ro
+    files:
+      -
+        source: salt://mosquitto/files/mosquitto.conf
+        path: /etc/mosquitto/mosquitto.conf
+        mode: 0644
+        user: root
+        group: root
