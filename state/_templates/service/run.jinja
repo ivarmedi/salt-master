@@ -2,7 +2,7 @@
 
 {%- for instance in instances %}
 {{ ns }}/template/service/run:
-  dockerng.running:
+  docker_container.running:
     - name: {{ name }}-{{ instance }}
     - image: {{ service.image }}:{{ service.tag|default('latest') }}
 

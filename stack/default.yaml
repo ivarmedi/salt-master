@@ -12,3 +12,15 @@ services:
       - /opt/plex/config:/config
       - /tmp/transcode:/transcode
       - /mnt/media:/mnt/media
+  murmur:
+    instances: 1
+    image: ivarmedi/murmur
+    tag: 1.2.11
+    network_mode: host
+  homeassistant:
+    instances: 1
+    image: homeassistant/home-assistant
+    network_mode: host
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - /etc/homeassistant:/config
