@@ -3,9 +3,9 @@
 {%- set service = salt['pillar.get']('services:' + name) %}
 
 {%- for file in service.files|default([]) %}
-{{ ns }}/file/{{ file.destination }}:
+{{ ns }}/file/{{ file.path }}:
   file.managed:
-    - name: {{ file.destination }}
+    - name: {{ file.path }}
     - source: {{ file.source }}
     - user: {{ file.user|default("root") }}
     - group: {{ file.group|default("root") }}
