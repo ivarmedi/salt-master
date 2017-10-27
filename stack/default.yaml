@@ -24,3 +24,10 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime
       - /etc/homeassistant:/config
+  mosquitto:
+    instances: 1
+    image: toke/mosquitto
+    ports:
+      - 1883:1883
+    volumes:
+      - /etc/mosquitto:/mqtt/config:ro
