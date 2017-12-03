@@ -22,6 +22,10 @@
     - binds: {{ service.volumes }}
   {%- endif %}
 
+  {%- if service.privileged|default(False) %}
+    - privileged: {{ service.privileged }}
+  {%- endif %}
+
   {%- if service.ports|default(False) %}
     - port_bindings: {{ service.ports }}
   {%- endif %}

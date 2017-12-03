@@ -45,3 +45,19 @@ services:
         mode: "0644"
         user: "root"
         group: "root"
+  telldusd:
+    instances: 1
+    images: ivarmedi/telldusd
+    ports:
+      - 50800:50800
+      - 50801:50801
+    volumes:
+      - /etc/tellstick/tellstick.conf:/etc/tellstick.conf
+    privileged: True
+    files:
+      -
+        source: salt://telldusd/files/tellstick.conf
+        path: /etc/tellstick/tellstick.conf
+        mode: "0644"
+        user: "root"
+        group: "root"
