@@ -1,0 +1,17 @@
+automation:
+  - alias: 'Turn on christmas lights one hour before sunset'
+    trigger:
+      - platform: sun
+        event: sunset
+        offset: '-01:00:00'
+    action:
+      service: homeassistant.turn_on
+      entity_id: switch.balkong
+  - alias: 'Turn off christmas lights one hour after sunrise'
+    trigger:
+      - platform: sun
+        event: sunrise
+        offset: '+01:00:00'
+    action:
+      service: homeassistant.turn_off
+      entity_id: switch.balkong

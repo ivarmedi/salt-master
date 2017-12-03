@@ -86,3 +86,10 @@ mqtt:
   broker: 192.168.1.20
   username: !secret http_username
   password: !secret http_password
+
+tellstick:
+  host: 192.168.1.20
+  port: [50800, 50801]
+
+switch:
+  - platform: tellstick
