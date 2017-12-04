@@ -47,7 +47,7 @@ services:
         group: "root"
   telldusd:
     instances: 1
-    images: ivarmedi/telldusd
+    image: ivarmedi/telldusd
     ports:
       - 50800:50800
       - 50801:50801
