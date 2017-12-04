@@ -1,17 +1,29 @@
-automation:
-  - alias: 'Turn on christmas lights one hour before sunset'
-    trigger:
-      - platform: sun
-        event: sunset
-        offset: '-01:00:00'
-    action:
-      service: homeassistant.turn_on
-      entity_id: switch.balkong
-  - alias: 'Turn off christmas lights one hour after sunrise'
-    trigger:
-      - platform: sun
-        event: sunrise
-        offset: '+01:00:00'
-    action:
-      service: homeassistant.turn_off
-      entity_id: switch.balkong
+- alias: 'Turn on christmas lights one hour before sunset'
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '-01:00:00'
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.balcony
+- alias: 'Turn off christmas lights at midnight'
+  trigger:
+    - platform: time
+      at: '00:00:00'
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.balcony
+- alias: 'Turn on christmas tree at 07:00'
+  trigger:
+    - platform: time
+      at: '07:00:00'
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.christmas_tree
+- alias: 'Turn off christmas tree at midnight'
+  trigger:
+    - platform: time
+      at: '00:00:00'
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.christmas_tree
