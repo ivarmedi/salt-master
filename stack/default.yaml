@@ -63,7 +63,7 @@ services:
         group: "root"
   tvheadend:
     instances: 1
-    images: linuxserver/tvheadend
+    image: linuxserver/tvheadend
     ports:
       - 9981:9981
       - 9982:9982
