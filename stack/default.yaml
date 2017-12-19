@@ -61,3 +61,14 @@ services:
         mode: "0644"
         user: "root"
         group: "root"
+  tvheadend:
+    instances: 1
+    images: linuxserver/tvheadend
+    ports:
+      - 9981:9981
+      - 9982:9982
+    volumes:
+      - /etc/tvheadend:/config
+      - /mnt/media/Recordings:/recordings
+    environment:
+      TZ: "Europe/Stockholm"
