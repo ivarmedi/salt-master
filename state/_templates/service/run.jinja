@@ -26,6 +26,13 @@
     - privileged: {{ service.privileged }}
   {%- endif %}
 
+  {%- if service.devices|default(False) and service.devices|length > 0 %}
+    - devices:
+  {%- for device in service.devices %}
+      - {{ device }}
+  {%- endfor %}
+  {%- endif %}
+
   {%- if service.ports|default(False) %}
     - port_bindings: {{ service.ports }}
   {%- endif %}

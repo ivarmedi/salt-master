@@ -72,3 +72,10 @@ services:
       - /mnt/media/Recordings:/recordings
     environment:
       TZ: "Europe/Stockholm"
+  znc:
+    instances: 1
+    image: znc
+    ports:
+      6697:6697
+    volumes:
+      - /etc/znc:/znc-data
