@@ -98,7 +98,7 @@ services:
       7878:7878
     volumes:
       - /etc/radarr:/config
-      - /mnt/media/Movies:/movies
+      - /mnt/media/Filmer:/movies
     environment:
       TZ: "Europe/Stockholm"
       PUID: 1001
