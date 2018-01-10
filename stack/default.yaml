@@ -86,7 +86,7 @@ services:
       8989:8989
     volumes:
       - /etc/sonarr:/config
-      - /mnt/media/Serier
+      - /mnt/media/Serier:/tv
     environment:
       TZ: "Europe/Stockholm"
       PUID: 1001
@@ -97,8 +97,8 @@ services:
     ports:
       7878:7878
     volumes:
-      - /etc/sonarr:/config
-      - /mnt/media/Filmer
+      - /etc/radarr:/config
+      - /mnt/media/Movies:/movies
     environment:
       TZ: "Europe/Stockholm"
       PUID: 1001
