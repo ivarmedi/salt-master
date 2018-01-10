@@ -79,3 +79,27 @@ services:
       6697:6697
     volumes:
       - /etc/znc:/znc-data
+  sonarr:
+    instances: 1
+    image: linuxserver/sonarr
+    ports:
+      8989:8989
+    volumes:
+      - /etc/sonarr:/config
+      - /mnt/media/Serier
+    environment:
+      TZ: "Europe/Stockholm"
+      PUID: 1001
+      PGID: 1001
+  radarr:
+    instances: 1
+    image: linuxserver/radarr
+    ports:
+      7878:7878
+    volumes:
+      - /etc/sonarr:/config
+      - /mnt/media/Filmer
+    environment:
+      TZ: "Europe/Stockholm"
+      PUID: 1001
+      PGID: 1001
