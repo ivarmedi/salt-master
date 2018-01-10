@@ -87,6 +87,7 @@ services:
     volumes:
       - /etc/sonarr:/config
       - /mnt/media/Serier:/tv
+      - /mnt/media/Downloads:/downloads
     environment:
       TZ: "Europe/Stockholm"
       PUID: 1001
@@ -99,6 +100,7 @@ services:
     volumes:
       - /etc/radarr:/config
       - /mnt/media/Filmer:/movies
+      - /mnt/media/Downloads:/downloads
     environment:
       TZ: "Europe/Stockholm"
       PUID: 1001
