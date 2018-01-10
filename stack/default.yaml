@@ -105,3 +105,15 @@ services:
       TZ: "Europe/Stockholm"
       PUID: 1001
       PGID: 1001
+  jackett:
+    instances: 1
+    image: linuxserver/jackett
+    ports:
+      9117:9117
+    volumes:
+      - /etc/jackett:/config
+      - /mnt/media/Downloads:/downloads
+    environment:
+      TZ: "Europe/Stockholm"
+      PUID: 1001
+      PGID: 1001
