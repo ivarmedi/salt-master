@@ -117,3 +117,29 @@ services:
       TZ: "Europe/Stockholm"
       PUID: 1001
       PGID: 1001
+  ombi:
+    instances: 1
+    image: linuxserver/ombi
+    ports:
+      3579:3579
+    volumes:
+      /etc/ombi:/config
+    environment:
+      TZ: "Europe/Stockholm"
+      PUID: 1001
+      PGID: 1001
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=ombi"
+      - "traefik.frontend.rule=Host:ombi-${DOMAIN_NAME}"
+      - "traefik.port=3579"
+  traefik:
+    instances: 1
+    image: traefik
+    ports:
+      443:443
+      80:80
+      8080:8080
+    volumes:
+      /etc/traefik/traefik.toml:/etc/traefik/traefik.toml
+      /var/run/docker.sock:/var/run/docker.sock

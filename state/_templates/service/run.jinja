@@ -33,6 +33,10 @@
   {%- endfor %}
   {%- endif %}
 
+  {%- if service.labels|default(False) and service.labels|length > 0 %}
+    - labels: {{ labels }}
+  {%- endif %}
+
   {%- if service.ports|default(False) %}
     - port_bindings: {{ service.ports }}
   {%- endif %}
