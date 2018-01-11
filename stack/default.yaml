@@ -15,7 +15,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=plex"
-      - "traefik.frontend.rule=Host:plex.local"
+      - "traefik.frontend.rule=Host:plex.nuc"
       - "traefik.port=32400"
   murmur:
     instances: 1
@@ -41,7 +41,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=homeassistant"
-      - "traefik.frontend.rule=Host:homeassistant.local"
+      - "traefik.frontend.rule=Host:homeassistant.nuc"
       - "traefik.port=8123"
   mosquitto:
     instances: 1
@@ -91,7 +91,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=tvheadend"
-      - "traefik.frontend.rule=Host:tvheadend.local"
+      - "traefik.frontend.rule=Host:tvheadend.nuc"
       - "traefik.port=9981"
   znc:
     instances: 1
@@ -103,7 +103,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=znc"
-      - "traefik.frontend.rule=Host:znc.local"
+      - "traefik.frontend.rule=Host:znc.nuc"
       - "traefik.port=6697"
   sonarr:
     instances: 1
@@ -121,7 +121,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=sonarr"
-      - "traefik.frontend.rule=Host:sonarr.local"
+      - "traefik.frontend.rule=Host:sonarr.nuc"
       - "traefik.port=8989"
   radarr:
     instances: 1
@@ -139,7 +139,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=radarr"
-      - "traefik.frontend.rule=Host:radarr.local"
+      - "traefik.frontend.rule=Host:radarr.nuc"
       - "traefik.port=7878"
   jackett:
     instances: 1
@@ -156,7 +156,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=jackett"
-      - "traefik.frontend.rule=Host:jackett.local"
+      - "traefik.frontend.rule=Host:jackett.nuc"
       - "traefik.port=9117"
   ombi:
     instances: 1
@@ -172,7 +172,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=ombi"
-      - "traefik.frontend.rule=Host:ombi.local"
+      - "traefik.frontend.rule=Host:ombi.nuc"
       - "traefik.port=3579"
   traefik:
     instances: 1
