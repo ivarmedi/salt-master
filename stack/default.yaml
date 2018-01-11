@@ -12,11 +12,18 @@ services:
       - /opt/plex/config:/config
       - /tmp/transcode:/transcode
       - /mnt/media:/mnt/media
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=plex"
+      - "traefik.frontend.rule=Host:plex.local"
+      - "traefik.port=32400"
   murmur:
     instances: 1
     image: ivarmedi/murmur
     tag: 1.2.11
     network_mode: host
+    labels:
+      - "traefik.enable=false"
   homeassistant:
     instances: 1
     image: homeassistant/home-assistant
@@ -31,6 +38,11 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime
       - /etc/homeassistant:/config
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=homeassistant"
+      - "traefik.frontend.rule=Host:homeassistant.local"
+      - "traefik.port=8123"
   mosquitto:
     instances: 1
     image: toke/mosquitto
@@ -45,6 +57,8 @@ services:
         mode: "0644"
         user: "root"
         group: "root"
+    labels:
+      - "traefik.enable=false"
   telldusd:
     instances: 1
     image: ivarmedi/telldusd
@@ -61,6 +75,8 @@ services:
         mode: "0644"
         user: "root"
         group: "root"
+    labels:
+      - "traefik.enable=false"
   tvheadend:
     instances: 1
     image: linuxserver/tvheadend
@@ -72,6 +88,11 @@ services:
       - /mnt/media/Recordings:/recordings
     environment:
       TZ: "Europe/Stockholm"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=tvheadend"
+      - "traefik.frontend.rule=Host:tvheadend.local"
+      - "traefik.port=9981"
   znc:
     instances: 1
     image: znc
@@ -79,6 +100,11 @@ services:
       6697:6697
     volumes:
       - /etc/znc:/znc-data
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=znc"
+      - "traefik.frontend.rule=Host:znc.local"
+      - "traefik.port=6697"
   sonarr:
     instances: 1
     image: linuxserver/sonarr
@@ -92,6 +118,11 @@ services:
       TZ: "Europe/Stockholm"
       PUID: 1001
       PGID: 1001
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=sonarr"
+      - "traefik.frontend.rule=Host:sonarr.local"
+      - "traefik.port=8989"
   radarr:
     instances: 1
     image: linuxserver/radarr
@@ -105,6 +136,11 @@ services:
       TZ: "Europe/Stockholm"
       PUID: 1001
       PGID: 1001
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=radarr"
+      - "traefik.frontend.rule=Host:radarr.local"
+      - "traefik.port=7878"
   jackett:
     instances: 1
     image: linuxserver/jackett
@@ -117,6 +153,11 @@ services:
       TZ: "Europe/Stockholm"
       PUID: 1001
       PGID: 1001
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=jackett"
+      - "traefik.frontend.rule=Host:jackett.local"
+      - "traefik.port=9117"
   ombi:
     instances: 1
     image: linuxserver/ombi
@@ -137,9 +178,9 @@ services:
     instances: 1
     image: traefik
     ports:
-      443:443
-      80:80
-      8080:8080
+      - 443:443
+      - 80:80
+      - 8080:8080
     volumes:
-      /etc/traefik/traefik.toml:/etc/traefik/traefik.toml
-      /var/run/docker.sock:/var/run/docker.sock
+      - /etc/traefik/traefik.toml:/etc/traefik/traefik.toml
+      - /var/run/docker.sock:/var/run/docker.sock
