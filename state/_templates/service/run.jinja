@@ -34,7 +34,7 @@
   {%- endif %}
 
   {%- if service.labels|default(False) and service.labels|length > 0 %}
-    - labels: {{ labels }}
+    - labels: {{ service.labels }}
   {%- endif %}
 
   {%- if service.ports|default(False) %}
