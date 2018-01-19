@@ -177,12 +177,12 @@ services:
   traefik:
     instances: 1
     image: traefik
-    ports:
-      - 443:443
-      - 80:80
-      - 8080:8080
+    network_mode: host
     volumes:
       - /etc/traefik/traefik.toml:/etc/traefik/traefik.toml
       - /var/run/docker.sock:/var/run/docker.sock
     labels:
-      - "traefik.enable=false"
+      - "traefik.enable=true"
+      - "traefik.backend=traefik"
+      - "traefik.frontend.rule=Host:traefik.nuc"
+      - "traefik.port=8080"
