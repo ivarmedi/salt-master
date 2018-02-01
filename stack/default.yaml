@@ -4,6 +4,7 @@ services:
     image: plexinc/pms-docker
     tag: plexpass
     network_mode: host
+    privileged: True
     environment:
       TZ: "Europe/Stockholm"
       PLEX_UID: "1001"
@@ -208,3 +209,16 @@ services:
       TZ: "Europe/Stockholm"
     labels:
       - "traefik.enable=false"
+  portainer:
+    instances: 1
+    image: portainer/portainer
+    ports:
+      - 9000:9000
+    volumes:
+      - /etc/portainer:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=portainer"
+      - "traefik.frontend.rule=Host:portainer.nuc"
+      - "traefik.port=9000"
