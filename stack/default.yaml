@@ -6,7 +6,7 @@ services:
     network_mode: host
     privileged: True
     devices:
-      - /dev/dir:/dev/dri
+      - /dev/dri:/dev/dri
     environment:
       TZ: "Europe/Stockholm"
       PLEX_UID: "1001"
