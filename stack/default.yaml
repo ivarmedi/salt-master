@@ -225,6 +225,7 @@ services:
       - "traefik.frontend.rule=Host:portainer.nuc"
       - "traefik.port=9000"
   deluge:
+    instances: 1
     image: binhex/arch-delugevpn
     ports:
       - 8112:8112
