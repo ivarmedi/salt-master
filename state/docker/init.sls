@@ -1,13 +1,21 @@
 {%- set name = sls.split('.')[::-1][0] %}
 {%- set ns = '/' + slspath + '/' + name %}
 
+{{ ns }}/prereq:
+  pkg.latest:
+    - names:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+
 {{ ns }}/repository:
   pkgrepo.managed:
-    - name: "deb https://apt.dockerproject.org/repo/ debian-{{ salt['grains.get']('oscodename') }} main"
-    - key_url: https://apt.dockerproject.org/gpg
+    - name: "deb https://download.docker.com/linux/ubuntu {{ salt['grains.get']('oscodename') }} stable"
+    - key_url: https://download.docker.com/linux/ubuntu/gpg
 
 {{ ns }}/install:
   pkg.latest:
-    - name: docker-engine
+    - name: docker-ce
     - require:
       - pkgrepo: {{ ns }}/repository
