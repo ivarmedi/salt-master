@@ -26,6 +26,10 @@
     - privileged: {{ service.privileged }}
   {%- endif %}
 
+  {%- if service.cap_add|default(False) %}
+    - cap_add: {{ service.cap_add }}
+  {%- endif %}
+
   {%- if service.devices|default(False) and service.devices|length > 0 %}
     - devices:
   {%- for device in service.devices %}
