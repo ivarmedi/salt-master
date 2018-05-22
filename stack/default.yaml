@@ -243,7 +243,7 @@ services:
       VPN_PROV: 'custom'
       STRICT_PORT_FORWARD: 'yes'
       ENABLE_PRIVOXY: 'no'
-      LAN_NETWORK: '192.168.1.0/24'
+      LAN_NETWORK: '192.168.1.0/24,10.9.0.0/24'
       NAME_SERVERS: '209.222.18.222,37.235.1.174,8.8.8.8,209.222.18.218,37.235.1.177,8.8.4.4'
       PUID: 1001
       GUID: 1001
