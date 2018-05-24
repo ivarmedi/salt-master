@@ -184,6 +184,7 @@ services:
     volumes:
       - /etc/traefik/traefik.toml:/etc/traefik/traefik.toml
       - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/ssl/traefik:/etc/ssl/traefik
     labels:
       - "traefik.enable=true"
       - "traefik.backend=traefik"
