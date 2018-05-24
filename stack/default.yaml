@@ -124,7 +124,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=sonarr"
-      - "traefik.frontend.rule=Host:sonarr.nuc"
+      - "traefik.frontend.rule=Host:sonarr.hemma.larsson.me"
       - "traefik.port=8989"
   radarr:
     instances: 1
@@ -142,7 +142,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=radarr"
-      - "traefik.frontend.rule=Host:radarr.nuc"
+      - "traefik.frontend.rule=Host:radarr.hemma.larsson.me"
       - "traefik.port=7878"
   jackett:
     instances: 1
