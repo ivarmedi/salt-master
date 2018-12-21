@@ -249,3 +249,13 @@ services:
       PUID: 1001
       GUID: 1001
       DEBUG: true
+  postgres:
+    instances: 1
+    image: postgres11-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - /var/lib/postgresql/data:/var/lib/postgresql/data
+      - /etc/postgresql:/etc/postgresql
+   environment:
+     POSTGRES_PASSWORD_FILE: /etc/postgresql/password
