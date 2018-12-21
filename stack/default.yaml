@@ -251,7 +251,7 @@ services:
       DEBUG: true
   postgres:
     instances: 1
-    image: postgres11-alpine
+    image: postgres:11-alpine
     ports:
       - 5432:5432
     volumes:
