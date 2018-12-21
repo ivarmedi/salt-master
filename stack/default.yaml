@@ -257,5 +257,5 @@ services:
     volumes:
       - /var/lib/postgresql/data:/var/lib/postgresql/data
       - /etc/postgresql:/etc/postgresql
-   environment:
-     POSTGRES_PASSWORD_FILE: /etc/postgresql/password
+    environment:
+      POSTGRES_PASSWORD_FILE: /etc/postgresql/password
