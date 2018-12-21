@@ -260,3 +260,13 @@ services:
       - /etc/postgresql:/etc/postgresql
     environment:
       POSTGRES_PASSWORD_FILE: /etc/postgresql/password
+  postfix:
+    instances: 1
+    image: catatnight/postfix
+    ports:
+      - 25:25
+      - 587:587
+    volumes:
+      - /etc/postfix/certs:/etc/postfix/certs:ro
+    environment:
+      maildomain: hemma.larsson.me
