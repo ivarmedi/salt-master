@@ -263,10 +263,10 @@ services:
   postfix:
     instances: 1
     image: catatnight/postfix
-    ports:
-      - 25:25
-      - 587:587
+    network_mode: host
     volumes:
       - /etc/postfix/certs:/etc/postfix/certs:ro
+      - /etc/postfix/main.cf:/etc/postfix/main.cf:ro
+      - /etc/postfix/master.cf:/etc/postfix/master.cf:ro
     environment:
       maildomain: hemma.larsson.me

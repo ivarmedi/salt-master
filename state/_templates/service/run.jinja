@@ -6,6 +6,10 @@
     - name: {{ name }}-{{ instance }}
     - image: {{ service.image }}:{{ service.tag|default('latest') }}
 
+  {%- if force %}
+    - force: True
+  {%- endif %}
+
   {%- if service.network_mode|default(False) and service.network_mode.lower() != 'host' %}
     - hostname: {{ name }}-{{ instance }}
   {%- endif %}
