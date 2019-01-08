@@ -270,3 +270,15 @@ services:
       - /etc/postfix/master.cf:/etc/postfix/master.cf:ro
     environment:
       maildomain: hemma.larsson.me
+  meta.sr.ht:
+    instances: 1
+    image: ivarmedi/meta.sr.ht
+    ports:
+      - 8001:8001
+    volumes:
+      - /etc/sr.ht/config.ini:/etc/sr.ht/config.ini
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=meta"
+      - "traefik.frontend.rule=Host:meta.hemma.larsson.me"
+      - "traefik.port=8001"
