@@ -270,7 +270,7 @@ services:
       - /etc/postfix/master.cf:/etc/postfix/master.cf:ro
     environment:
       maildomain: hemma.larsson.me
-  meta.sr.ht:
+  meta:
     instances: 1
     image: ivarmedi/meta.sr.ht
     ports:
