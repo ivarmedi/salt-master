@@ -282,3 +282,19 @@ services:
       - "traefik.backend=meta"
       - "traefik.frontend.rule=Host:meta.hemma.larsson.me"
       - "traefik.port=8001"
+  pihole:
+    instances: 1
+    image: pihole/pihole:latest
+    ports:
+      - 53:53/tcp
+      - 53:53/udp
+      - 67:67/udp
+      - 80:80/tcp
+      - 443:443/tcp
+    environment:
+      TZ: 'Europe/Stockholm'
+    volumes:
+      - /etc/pihole/config/:/etc/pihole/
+      - /etc/pihole/dnsmasq.d/:/etc/dnsmasq.d/
+    dns:
+      - 192.168.1.1

@@ -41,6 +41,13 @@
   {%- endfor %}
   {%- endif %}
 
+  {%- if service.dns|default(False) and service.dns|length > 0 %}
+    - dns:
+  {%- for server in service.dns %}
+      - {{ server }}
+  {%- endfor %}
+  {%- endif %}
+
   {%- if service.labels|default(False) and service.labels|length > 0 %}
     - labels: {{ service.labels }}
   {%- endif %}
