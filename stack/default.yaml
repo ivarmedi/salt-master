@@ -284,7 +284,7 @@ services:
       - "traefik.port=8001"
   pihole:
     instances: 1
-    image: pihole/pihole:latest
+    image: pihole/pihole
     ports:
       - 53:53/tcp
       - 53:53/udp
