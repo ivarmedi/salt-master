@@ -124,7 +124,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=sonarr"
-      - "traefik.frontend.rule=Host:sonarr.hemma.larsson.me"
+      - "traefik.frontend.rule=Host:sonarr.lan"
       - "traefik.port=8989"
   radarr:
     instances: 1
@@ -142,7 +142,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=radarr"
-      - "traefik.frontend.rule=Host:radarr.hemma.larsson.me"
+      - "traefik.frontend.rule=Host:radarr.lan"
       - "traefik.port=7878"
   jackett:
     instances: 1
@@ -280,7 +280,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=meta"
-      - "traefik.frontend.rule=Host:meta.hemma.larsson.me"
+      - "traefik.frontend.rule=Host:meta.lan"
       - "traefik.port=8001"
   pihole:
     instances: 1
@@ -300,5 +300,5 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=pihole"
-      - "traefik.frontend.rule=Host:pihole.hemma.larsson.me"
+      - "traefik.frontend.rule=Host:pihole.lan"
       - "traefik.port=8002"
