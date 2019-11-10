@@ -18,7 +18,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=plex"
-      - "traefik.frontend.rule=Host:plex.nuc"
+      - "traefik.frontend.rule=Host:plex.lan"
       - "traefik.port=32400"
   murmur:
     instances: 1
@@ -44,7 +44,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=homeassistant"
-      - "traefik.frontend.rule=Host:homeassistant.nuc"
+      - "traefik.frontend.rule=Host:homeassistant.lan"
       - "traefik.port=8123"
   mosquitto:
     instances: 1
@@ -94,7 +94,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=tvheadend"
-      - "traefik.frontend.rule=Host:tvheadend.nuc"
+      - "traefik.frontend.rule=Host:tvheadend.lan"
       - "traefik.port=9981"
   znc:
     instances: 1
@@ -106,7 +106,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=znc"
-      - "traefik.frontend.rule=Host:znc.nuc"
+      - "traefik.frontend.rule=Host:znc.lan"
       - "traefik.port=6697"
   sonarr:
     instances: 1
@@ -159,7 +159,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=jackett"
-      - "traefik.frontend.rule=Host:jackett.nuc"
+      - "traefik.frontend.rule=Host:jackett.lan"
       - "traefik.port=9117"
   ombi:
     instances: 1
@@ -175,7 +175,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=ombi"
-      - "traefik.frontend.rule=Host:ombi.nuc"
+      - "traefik.frontend.rule=Host:ombi.lan"
       - "traefik.port=3579"
   traefik:
     instances: 1
@@ -188,7 +188,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=traefik"
-      - "traefik.frontend.rule=Host:traefik.nuc"
+      - "traefik.frontend.rule=Host:traefik.lan"
       - "traefik.port=8080"
   squid:
     instances: 1
@@ -223,7 +223,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=portainer"
-      - "traefik.frontend.rule=Host:portainer.nuc"
+      - "traefik.frontend.rule=Host:portainer.lan"
       - "traefik.port=9000"
   deluge:
     instances: 1
