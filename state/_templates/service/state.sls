@@ -1,6 +1,11 @@
 {%- set name = sls.split('.')[::-1][0] %}
 {%- set ns = '/' + slspath + '/' + name %}
 {%- set service = salt['pillar.get']('services:' + name) %}
+
+{%- if not service %}
+  {%- set service = salt['pillar.get']('applications:' + name) %}
+{%- endif %}
+
 {%- set force = salt['pillar.get']('force', False) %}
 
 {%- for file in service.files|default([]) %}

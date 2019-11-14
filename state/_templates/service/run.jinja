@@ -18,6 +18,14 @@
     - environment: {{ service.environment }}
   {%- endif %}
 
+  {%- if service.entrypoint|default(False) %}
+    - entrypoint: {{ service.entrypoint }}
+  {%- endif %}
+
+  {%- if service.command|default(False) %}
+    - command: {{ service.command }}
+  {%- endif %}
+
   {%- if service.network_mode|default(False) %}
     - network_mode: {{ service.network_mode }}
   {%- endif %}

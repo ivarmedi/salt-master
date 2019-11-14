@@ -316,3 +316,13 @@ services:
     volumes:
       - /etc/certbot/conf:/etc/letsencrypt:rw
       - /etc/certbot/www:/var/www/certbot:rw
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h; done;'"
+applications:
+  ivli_api:
+    instances: 1
+    image: node
+    tag: 12
+    volumes:
+      - /var/www/ivli_api:/usr/src/app
+    workdir: /usr/src/app
+    entrypoint: node index.js
