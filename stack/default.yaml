@@ -322,6 +322,8 @@ applications:
     instances: 1
     image: node
     tag: 12
+    ports:
+      - 3003:3003/tcp
     volumes:
       - /var/www/ivli_api:/usr/src/app
     workdir: /usr/src/app
