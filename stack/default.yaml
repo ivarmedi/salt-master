@@ -305,8 +305,14 @@ services:
   nginx:
     instances: 1
     image: nginx
-    ports:
-      - 80:80/tcp
-      - 443:443/tcp
+    network_mode: host
     volumes:
-      - /etc/nginx:/etc/nginx
+      - /etc/nginx:/etc/nginx:ro
+      - /etc/certbot/conf:/etc/letsencrypt:ro
+      - /etc/certbot/www:/var/www/certbot:ro
+  certbot:
+    instances: 1
+    image: certbot/certbot
+    volumes:
+      - /etc/certbot/conf:/etc/letsencrypt:rw
+      - /etc/certbot/www:/var/www/certbot:rw
