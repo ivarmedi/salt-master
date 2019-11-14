@@ -302,3 +302,11 @@ services:
       - "traefik.backend=pihole"
       - "traefik.frontend.rule=Host:pihole.lan"
       - "traefik.port=8002"
+  nginx:
+    instances: 1
+    image: nginx
+    ports:
+      - 80:80/tcp
+      - 443:443/tcp
+    volumes:
+      - /etc/nginx:/etc/nginx
