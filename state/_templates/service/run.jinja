@@ -26,6 +26,10 @@
     - command: {{ service.command }}
   {%- endif %}
 
+  {%- if service.workdir|default(False) %}
+    - working_dir: {{ service.workdir }}
+  {%- endif %}
+
   {%- if service.network_mode|default(False) %}
     - network_mode: {{ service.network_mode }}
   {%- endif %}

@@ -325,4 +325,4 @@ applications:
     volumes:
       - /var/www/ivli_api:/usr/src/app
     workdir: /usr/src/app
-    entrypoint: node index.js
+    command: node index.js
