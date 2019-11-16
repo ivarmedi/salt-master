@@ -326,5 +326,6 @@ applications:
       - 3003:3003/tcp
     volumes:
       - /var/www/ivli_api:/usr/src/app
+      - /var/www/ivli_frontend:/usr/src/frontend
     workdir: /usr/src/app
     command: node index.js
