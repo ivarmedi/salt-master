@@ -328,4 +328,4 @@ applications:
       - /var/www/ivli_api:/usr/src/app
       - /var/www/ivli_frontend:/usr/src/frontend
     workdir: /usr/src/app
-    command: node index.js
+    command: node_modules/nodemon/bin/nodemon.js
