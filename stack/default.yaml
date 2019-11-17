@@ -327,5 +327,7 @@ applications:
     volumes:
       - /var/www/ivli_api:/var/www/ivli_api
       - /var/www/ivli_frontend:/var/www/ivli_frontend
+    environment:
+      NODE_ENV: production
     workdir: /var/www/ivli_api
     command: node_modules/nodemon/bin/nodemon.js
