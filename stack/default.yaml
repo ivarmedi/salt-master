@@ -228,6 +228,7 @@ services:
   deluge:
     instances: 1
     image: binhex/arch-delugevpn
+    tag: 2.0.3_23_g5f1eada3e-1-03
     ports:
       - 8112:8112
       - 8118:8118
