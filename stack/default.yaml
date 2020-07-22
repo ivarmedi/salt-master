@@ -334,6 +334,15 @@ services:
       - selenium_grid
     volumes:
       - /dev/shm:/dev/shm
+  selenium_node_firefox:
+    instances: 2
+    image: selenium/node-firefox
+    environment:
+      HUB_HOST: selenium_hub-0
+    networks:
+      - selenium_grid
+    volumes:
+      - /dev/shm:/dev/shm
 applications:
   ivli_api:
     instances: 1
