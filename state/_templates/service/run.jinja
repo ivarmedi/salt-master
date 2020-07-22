@@ -9,7 +9,7 @@
 {%- endif %}
 
 {%- for instance in instances %}
-{{ ns }}/template/service/run:
+{{ ns }}/template/service/run/{{ instance }}:
   docker_container.running:
     - name: {{ name }}-{{ instance }}
     - image: {{ service.image }}:{{ service.tag|default('latest') }}
