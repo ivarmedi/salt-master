@@ -1,5 +1,13 @@
 {%- set instances = range(0, service.instances|default(0)) %}
 
+{%- if service.networks | default(False) %}
+{%- for network in service.networks %}
+{{ ns }}/template/service/network/{{ name }}/{{ network }}:
+  docker_network.present:
+    - name: {{ network }}
+{%- endfor %}
+{%- endif %}
+
 {%- for instance in instances %}
 {{ ns }}/template/service/run:
   docker_container.running:
@@ -32,6 +40,10 @@
 
   {%- if service.network_mode|default(False) %}
     - network_mode: {{ service.network_mode }}
+  {%- endif %}
+
+  {%- if service.networks|default(False) %}
+    - networks: {{ service.networks }}
   {%- endif %}
 
   {%- if service.volumes|default(False) %}
