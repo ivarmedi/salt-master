@@ -357,3 +357,9 @@ applications:
       NODE_ENV: production
     workdir: /var/www/ivli_api
     command: node_modules/nodemon/bin/nodemon.js
+  ivli_homenet:
+    instances: 1
+    image: ivli/homenet
+    tag: latest
+    ports:
+      - 3004:5000/tcp
