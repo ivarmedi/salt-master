@@ -343,6 +343,15 @@ services:
       - selenium_grid
     volumes:
       - /dev/shm:/dev/shm
+  mysql:
+    instances: 1
+    image: percona
+    tag: 8.0
+    volumes:
+      - /var/lib/mysql:/var/lib/mysql
+      - /etc/mysql:/etc/mysql
+    environment:
+      MYSQL_ONETIME_PASSWORD: password
 applications:
   ivli_api:
     instances: 1
