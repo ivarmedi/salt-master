@@ -374,6 +374,6 @@ applications:
     image: ivli/homenet
     tag: latest
     volumes:
-      - /home/ivar/git/homenet/backend/build:/app/public/data
+      - /home/ivar/git/homenet/backend/build:/app/build/data
     ports:
       - 3004:5000/tcp
