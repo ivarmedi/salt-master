@@ -390,8 +390,9 @@ applications:
     image: node
     tag: 12
     command: npm run start
+    workdir: /app
     volumes:
-      - /home/ivar/git/spoilerfree/frontend:/app
-      - /home/ivar/git/spoilerfree/backend/build:/app/build/data
+      - /home/ivar/dev/ivli/spoilerfree:/app
+      - /home/ivar/git/spoilerfree/backend/build:/app/public/data
     ports:
       - 3006:5000/tcp
