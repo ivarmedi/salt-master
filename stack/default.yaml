@@ -387,8 +387,8 @@ applications:
       - 3005:5000/tcp
   ivli_spoilerfree_dev:
     instances: 1
-    image: node:12
-    tag: latest
+    image: node
+    tag: 12
     command: npm run start
     volumes:
       - /home/ivar/git/spoilerfree/frontend:/app
