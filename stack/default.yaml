@@ -377,6 +377,17 @@ applications:
       - /home/ivar/git/homenet/backend/build:/app/build/data
     ports:
       - 3004:5000/tcp
+  ivli_homenet-dev:
+    instances: 1
+    image: node
+    tag: 12
+    command: sh -c 'npm install; npm run start'
+    workdir: /app
+    volumes:
+      - /home/ivar/dev/ivli_homenet:/app
+      - /home/ivar/git/homenet/backend/build:/app/public/data
+    ports:
+      - 3002:3000/tcp
   ivli_spoilerfree:
     instances: 1
     image: ivli/spoilerfree
